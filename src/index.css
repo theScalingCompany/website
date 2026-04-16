@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 4%; /* Deep space black/slate */
+    --foreground: 0 0% 100%;
+
+    --card: 240 10% 6%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 240 10% 6%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 250 100% 65%; /* Electric Purple/Blue */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 10% 12%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 240 10% 15%;
+    --muted-foreground: 240 5% 65%;
+
+    --accent: 190 100% 50%; /* Cyan/Neon */
+    --accent-foreground: 0 0% 100%;
+
+    --gold: 45 100% 60%;
+    --gold-foreground: 240 10% 4%;
+
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 240 10% 12%;
+    --input: 240 10% 12%;
+    --ring: 190 100% 50%;
+
+    --radius: 1rem;
+
+    --gradient-primary: linear-gradient(135deg, hsl(250, 100%, 65%), hsl(190, 100%, 50%));
+    --gradient-gold: linear-gradient(135deg, hsl(45, 100%, 60%), hsl(30, 100%, 55%));
+    --gradient-hero: radial-gradient(circle at top center, hsl(250, 60%, 15%) 0%, hsl(240, 10%, 4%) 60%);
+    
+    --shadow-glow: 0 0 20px hsla(190, 100%, 50%, 0.4);
+    --shadow-primary-glow: 0 0 30px hsla(250, 100%, 65%, 0.4);
+    --shadow-card: 0 20px 40px -10px hsla(0, 0%, 0%, 0.8), 0 0 10px hsla(250, 100%, 65%, 0.05);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+  }
+}
+
+@layer utilities {
+  .glassmorphism {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+  }
+  .text-gradient {
+    @apply bg-gradient-primary bg-clip-text text-transparent;
+  }
+}
