@@ -1,30 +1,38 @@
 import { Linkedin } from "lucide-react";
+import nirmalImg from "@/assets/founder-nirmal.jpg";
+import aswinImg from "@/assets/founder-aswin.jpg";
+import sarathyImg from "@/assets/founder-sarathy.jpg";
+import sabinaImg from "@/assets/founder-sabina.png";
 
 const Founders = () => {
   const founders = [
     {
       name: "Nirmal Chandran",
       role: "Co-Founder & CEO",
-      image: "https://i.pravatar.cc/600?u=nirmal", // Placeholders for now
-      delay: "0.2s"
+      image: nirmalImg,
+      delay: "0.2s",
+      objectPosition: "center 20%"
     },
     {
       name: "Aswin Bavadas",
       role: "Co-Founder & COO",
-      image: "https://i.pravatar.cc/600?u=aswin",
-      delay: "0.3s"
+      image: aswinImg,
+      delay: "0.3s",
+      objectPosition: "center"
     },
     {
-      name: "Pon Sharthay",
+      name: "Pon Sarathy",
       role: "Co-Founder & Head of Operations",
-      image: "https://i.pravatar.cc/600?u=pon",
-      delay: "0.4s"
+      image: sarathyImg,
+      delay: "0.4s",
+      objectPosition: "50% 10%" // High alignment to ensure face is visible
     },
     {
       name: "Sabina Tejani",
       role: "Co-Founder & Head of Sales",
-      image: "https://i.pravatar.cc/600?u=sabina",
-      delay: "0.5s"
+      image: sabinaImg,
+      delay: "0.5s",
+      objectPosition: "center"
     }
   ];
 
@@ -53,7 +61,7 @@ const Founders = () => {
           {founders.map((founder, index) => (
             <div 
               key={index}
-              className="group relative rounded-3xl overflow-hidden glassmorphism border-white/10 bg-white/5 opacity-0 animate-fade-in-up"
+              className="group relative rounded-[2rem] overflow-hidden glassmorphism border-white/10 bg-white/5 opacity-0 animate-fade-in-up hover:shadow-primary-glow/20 transition-all duration-500"
               style={{ animationDelay: founder.delay, animationFillMode: 'forwards' }}
             >
               {/* Image Container with Hover Zoom */}
@@ -61,27 +69,29 @@ const Founders = () => {
                 <img 
                   src={founder.image} 
                   alt={founder.name}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter grayscale group-hover:grayscale-0"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 filter grayscale group-hover:grayscale-0"
+                  style={{ objectPosition: (founder as any).objectPosition || 'center' }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1c] via-[#0a0f1c]/40 to-transparent opacity-90 group-hover:opacity-70 transition-opacity duration-500" />
+                {/* Dark Bottom Gradient Overlay for readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1c] via-[#0a0f1c]/40 to-transparent opacity-100 group-hover:opacity-80 transition-opacity duration-500" />
               </div>
 
               {/* Founder Info */}
-              <div className="absolute bottom-0 left-0 w-full p-8 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                <h3 className="text-2xl font-black text-white font-outfit tracking-wide mb-1">
+              <div className="absolute bottom-0 left-0 w-full p-8 translate-y-2 group-hover:translate-y-0 transition-transform duration-500 z-10">
+                <h3 className="text-2xl font-black text-white font-outfit tracking-wide mb-1 drop-shadow-lg">
                   {founder.name}
                 </h3>
-                <p className="text-primary font-medium text-sm tracking-wider uppercase mb-4">
+                <p className="text-primary font-bold text-[10px] md:text-xs tracking-[0.2em] uppercase mb-4 drop-shadow-sm brightness-125">
                   {founder.role}
                 </p>
                 
                 {/* LinkedIn Button fading in */}
-                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                <div className="opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100 transform translate-y-4 group-hover:translate-y-0">
                   <a href="#" className="inline-flex items-center gap-2 text-white/50 hover:text-white transition-colors text-sm font-medium">
-                    <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors">
+                    <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors border border-white/5">
                       <Linkedin className="w-4 h-4 fill-current" />
                     </div>
-                    Connect
+                    <span>Connect</span>
                   </a>
                 </div>
               </div>
