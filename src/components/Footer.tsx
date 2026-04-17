@@ -1,4 +1,5 @@
 import { Facebook, Twitter, Linkedin, Instagram, Mail, MapPin } from "lucide-react";
+import Logo from "@/components/Logo";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -27,13 +28,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-6">
             <div className="flex flex-col gap-4 group cursor-pointer items-start">
-              <div className="h-16 w-[240px] flex items-center justify-start overflow-hidden relative">
-                 <div className="absolute top-1/2 -left-4 w-32 h-10 bg-primary/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                 <img src="/scaling_logo.png" alt="The Scaling Circle Media Logo" className="w-full h-full object-contain mix-blend-screen invert grayscale brightness-200 contrast-150 scale-[1.8] group-hover:scale-[1.9] transition-all duration-300 relative z-10 origin-left" />
-              </div>
-              <span className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-                The Scaling Circle Media
-              </span>
+              <Logo height={48} className="transition-transform duration-300 group-hover:scale-[1.04]" />
             </div>
             <p className="text-muted-foreground leading-relaxed font-light">
               India's most experienced performance marketing partner and mentor for coaches. We help businesses scale into 8-figure brands.
