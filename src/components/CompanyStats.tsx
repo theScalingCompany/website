@@ -1,155 +1,113 @@
+import React from "react";
+import { TrendingUp, Users, Award, Shield, DollarSign, Globe2, BarChart2 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import { TrendingUp, Users, Award, Globe, Building2 } from "lucide-react";
-import strategyMeeting from "@/assets/strategy-meeting.jpg";
 
 const CompanyStats = () => {
   const stats = [
     {
-      icon: TrendingUp,
+      number: "₹5Cr+",
+      label: "Advertising Spend Managed",
+      description: "Allocated across Meta, Google, and YouTube search/video ads to drive acquisition.",
+      icon: DollarSign,
+      color: "text-primary"
+    },
+    {
       number: "100+",
-      label: "Businesses Launched",
-      description: "Digital marketers and coaches have launched their own branded biz with our guidance.",
-      gradient: "from-primary to-blue-500"
-    },
-    {
-      icon: Award,
-      number: "98%",
-      label: "Client Satisfaction Rate",
-      description: "Coaching and automation that actually drives clarity, confidence, and monthly recurring income.",
-      gradient: "from-blue-500 to-primary"
-    },
-    {
+      label: "Coaches & Entrepreneurs Supported",
+      description: "Direct strategic guidance, funnel engineering, and performance scaling.",
       icon: Users,
-      number: "1,527",
-      label: "Total Opportunities",
-      description: "Cold leads converted into warm prospects through our proven systems.",
-      highlight: "15 Follow-Ups | 1,527 Cold Leads | 0 Warm Leads",
-      gradient: "from-primary to-accent"
+      color: "text-accent"
     },
     {
-      icon: Globe,
-      number: "Global",
-      label: "Indian Customers",
-      description: "From global ecosystems empowering entrepreneurs in India.",
-      gradient: "from-accent to-primary"
+      number: "350+",
+      label: "Campaigns Launched",
+      description: "A/B creative testing, offer positioning validations, and audience scaling tracks.",
+      icon: TrendingUp,
+      color: "text-gold"
+    },
+    {
+      number: "1.2M+",
+      label: "Leads & Registrations Generated",
+      description: "High-intent landing page conversions, application funnels, and workshop registrants.",
+      icon: BarChart2,
+      color: "text-purple-400"
+    },
+    {
+      number: "₹18Cr+",
+      label: "Client Revenue Influenced",
+      description: "Directly attributable back-end sales, paid course enrolments, and donations.",
+      icon: Award,
+      color: "text-emerald-400"
+    },
+    {
+      number: "12",
+      label: "Markets or Languages Served",
+      description: "Multilingual and regional campaigns optimized for localized growth dynamics.",
+      icon: Globe2,
+      color: "text-blue-400"
     }
   ];
 
   return (
-    <section className="py-32 bg-background relative overflow-hidden">
+    <section className="py-32 bg-background relative overflow-hidden border-b border-white/5">
       {/* Background Ambience */}
-      <div className="absolute bottom-0 right-0 w-3/4 h-[500px] bg-gradient-radial from-primary/10 to-transparent blur-[120px] -z-10" />
+      <div className="absolute top-0 right-0 w-3/4 h-[500px] bg-gradient-radial from-primary/5 to-transparent blur-[120px] -z-10 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-3/4 h-[500px] bg-gradient-radial from-accent/5 to-transparent blur-[120px] -z-10 pointer-events-none" />
 
       <div className="container mx-auto px-4 relative z-10">
+        
+        {/* Header */}
+        <div className="text-center mb-20 max-w-3xl mx-auto">
+          <span className="text-primary font-bold tracking-widest text-xs uppercase block mb-4">
+            RESULTS DATA STRIP
+          </span>
+          <h2 className="text-4xl md:text-5xl font-black mb-6 font-outfit text-white tracking-tight">
+            Growth Measured Across the Entire Journey
+          </h2>
+          <p className="text-muted-foreground font-light">
+            We only report verified numbers attributable to our systems, offers, funnels, and performance marketing campaigns.
+          </p>
+        </div>
+
         {/* Stats Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-32">
-          {stats.map((stat, index) => (
-            <Card 
-              key={index}
-              className="bg-white/5 backdrop-blur-xl border-white/10 hover:border-primary/50 transition-all duration-500 hover:shadow-primary-glow hover:-translate-y-2 group opacity-0 animate-fade-in-up"
-              style={{ animationDelay: `${index * 0.15}s`, animationFillMode: 'forwards' }}
-            >
-              <CardContent className="p-8">
-                <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${stat.gradient} flex items-center justify-center mb-8 group-hover:scale-110 transition-transform shadow-lg`}>
-                  <stat.icon className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-5xl font-black mb-3 text-white font-outfit tracking-tighter">
-                  {stat.number}
-                </h3>
-                <p className="text-primary font-medium tracking-wide mb-4 text-lg">
-                  {stat.label}
-                </p>
-                <p className="text-white/60 text-sm leading-relaxed font-light">
-                  {stat.description}
-                </p>
-                {stat.highlight && (
-                  <div className="mt-6 pt-4 border-t border-white/10">
-                    <p className="text-xs text-accent font-medium tracking-wider uppercase">{stat.highlight}</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16">
+          {stats.map((stat, index) => {
+            const Icon = stat.icon;
+            return (
+              <Card 
+                key={index}
+                className="bg-[#0a0f1c]/40 backdrop-blur-xl border-white/10 hover:border-primary/40 transition-all duration-500 hover:-translate-y-1.5 group"
+              >
+                <CardContent className="p-8 space-y-4">
+                  <div className="flex justify-between items-start">
+                    <h3 className={`text-4xl md:text-5xl font-black font-outfit tracking-tighter ${stat.color}`}>
+                      {stat.number}
+                    </h3>
+                    <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/40 group-hover:text-primary group-hover:border-primary/30 transition-colors">
+                      <Icon className="w-4 h-4" />
+                    </div>
                   </div>
-                )}
-              </CardContent>
-            </Card>
-          ))}
+                  <div className="space-y-2">
+                    <p className="text-white font-bold text-sm tracking-wide">
+                      {stat.label}
+                    </p>
+                    <p className="text-white/50 text-xs leading-relaxed font-light">
+                      {stat.description}
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
 
-        {/* Image Section with CTA */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
-          <div className="relative rounded-[2.5rem] overflow-hidden group glassmorphism border-white/10 p-2 opacity-0 animate-fade-in-up md:order-2" style={{ animationDelay: "0.2s", animationFillMode: 'forwards' }}>
-            <img 
-              src={strategyMeeting} 
-              alt="Strategy Meeting" 
-              className="w-full h-[600px] object-cover rounded-3xl transition-transform duration-1000 group-hover:scale-105 mix-blend-luminosity opacity-80"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 p-12">
-              <h3 className="text-3xl font-black text-white mb-6 font-outfit">
-                Sky Rocket Your ROI
-              </h3>
-              <div className="flex items-center gap-6">
-                <div className="glassmorphism rounded-2xl px-8 py-4 border border-white/20 shadow-2xl relative overflow-hidden">
-                   <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent" />
-                  <p className="text-primary font-black text-3xl mb-1 relative z-10">Rs. 10L</p>
-                  <p className="text-white/80 text-xs tracking-wider uppercase font-medium relative z-10">30 Day Earning</p>
-                </div>
-                <div className="flex-1 h-16 relative">
-                  <svg viewBox="0 0 200 40" className="w-full h-full">
-                    <path 
-                      d="M 0,30 Q 50,25 100,15 T 200,5" 
-                      fill="none" 
-                      stroke="url(#chart-gradient)" 
-                      strokeWidth="4"
-                      strokeLinecap="round"
-                      className="animate-pulse drop-shadow-[0_0_10px_rgba(250,250,250,0.5)]"
-                    />
-                    <defs>
-                      <linearGradient id="chart-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stopColor="hsl(var(--primary))" />
-                        <stop offset="100%" stopColor="hsl(var(--accent))" />
-                      </linearGradient>
-                    </defs>
-                  </svg>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="space-y-10 opacity-0 animate-fade-in-up md:order-1" style={{ animationDelay: "0.4s", animationFillMode: 'forwards' }}>
-            <div>
-              <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full border border-white/10 glassmorphism text-sm font-medium mb-6">
-                <Users className="w-4 h-4 text-primary" />
-                <span className="text-foreground tracking-wide">Your Unfair Advantage</span>
-              </div>
-              <h2 className="text-5xl md:text-6xl font-black mb-8 leading-tight font-outfit tracking-tighter">
-                We're Not An Agency. <br/>
-                <span className="text-gradient">
-                  We're Growth Partners.
-                </span>
-              </h2>
-              <p className="text-xl text-muted-foreground leading-relaxed font-light mb-8">
-                At The Scaling Company, we engineer bespoke growth systems. We don't just run ads; we build empires. If you're a coach, creator, or EdTech brand looking to dominate, you're in the right place.
-              </p>
-            </div>
-
-            <div className="space-y-4">
-              {[
-                "Data-driven frameworks that predictably convert",
-                "Organic omnipresence that builds unshakable authority",
-                "100% transparent ROI performance reporting",
-                "Dedicated elite growth manager for every partner"
-              ].map((feature, i) => (
-                <div 
-                  key={i}
-                  className="flex items-center gap-4 group glassmorphism p-4 rounded-2xl border-white/5 hover:border-primary/30 transition-colors"
-                >
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/30 transition-colors">
-                    <TrendingUp className="w-5 h-5 text-primary" />
-                  </div>
-                  <span className="text-lg text-white/80 group-hover:text-white transition-colors tracking-wide">{feature}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+        {/* Disclaimer */}
+        <div className="max-w-3xl mx-auto text-center border-t border-white/5 pt-8">
+          <p className="text-[10px] text-white/30 leading-relaxed font-light uppercase tracking-widest">
+            Disclaimer: Results vary depending on the market, offer, campaign objective, sales process, budget and implementation. Individual outcomes shown are not guarantees of future performance.
+          </p>
         </div>
+
       </div>
     </section>
   );

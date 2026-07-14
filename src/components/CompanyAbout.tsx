@@ -61,89 +61,53 @@ const CompanyAbout = () => {
   };
 
   return (
-    <section id="about" className="py-32 bg-background relative overflow-hidden">
+    <section id="about-us" className="py-32 bg-background relative overflow-hidden border-b border-white/5">
       {/* Background Ambience */}
       <div className="absolute top-0 right-1/4 w-[800px] h-[800px] bg-primary/5 blur-[150px] mix-blend-screen rounded-full -z-10" />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-5xl mx-auto">
           {/* Main About Content */}
-          <div className="text-center mb-20 opacity-0 animate-fade-in-up" style={{ animationDelay: '0.1s', animationFillMode: 'forwards' }}>
-            <h2 className="text-5xl md:text-7xl font-black mb-8 leading-tight font-outfit">
-              About{" "}
-              <span className="text-gradient">
-                The Scaling Company
-              </span>
+          <div className="text-center mb-20 animate-fade-in-up">
+            <span className="text-primary font-bold tracking-widest text-xs uppercase block mb-4">
+              WHO WE ARE
+            </span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight font-outfit text-white">
+              A Growth Team Built to Solve More Than <br className="hidden md:block"/>
+              <span className="text-gradient">Advertising Problems</span>
             </h2>
             
-            <div className="space-y-6 text-xl text-muted-foreground leading-relaxed max-w-4xl mx-auto font-light">
+            <div className="space-y-8 text-lg text-muted-foreground leading-relaxed max-w-4xl mx-auto font-light text-left md:text-center">
               <p>
-                India’s most experienced performance marketing partner and mentor for coaches. We are the performance partner behind fast-scaling Coaches, Creators & EdTech brands equipping them to dominate their markets.
+                The Scaling Company is a performance marketing and growth partner for businesses and organisations that want to acquire more customers, students, participants, members or supporters. We work at the intersection of strategy, communication, technology and performance.
               </p>
               
-              <p className="text-2xl text-white font-medium tracking-wide">
-                We help businesses scale into 8-figure brands by building category leadership. Every marketing move is designed around one outcome: <span className="text-primary italic">predictable, repeatable profits</span>.
-              </p>
-            </div>
-          </div>
-
-          {/* Values/Principles Grid */}
-          <div className="mb-24">
-            <div className="text-center mb-16 opacity-0 animate-fade-in-up" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>
-              <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full border border-white/10 glassmorphism text-sm font-medium mb-6">
-                <Shield className="w-4 h-4 text-accent" />
-                <span className="text-foreground tracking-wide">Our Principles</span>
-              </div>
-              <h3 className="text-4xl font-bold font-outfit">
-                What Sets Us Apart
-              </h3>
-            </div>
-            
-            <div className="grid md:grid-cols-2 gap-8">
-              {values.map((value, index) => (
-                <Card 
-                  key={index}
-                  className="bg-white/5 backdrop-blur-xl border-white/10 hover:border-primary/40 transition-all duration-500 hover:shadow-primary-glow group opacity-0 animate-fade-in-up"
-                  style={{ animationDelay: `${index * 0.15 + 0.3}s`, animationFillMode: 'forwards' }}
-                >
-                  <CardContent className="p-8">
-                    <div className="flex items-start gap-6">
-                      <div className="w-14 h-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:bg-primary/20 transition-all duration-500">
-                        <value.icon className="w-7 h-7 text-white group-hover:text-primary transition-colors" />
-                      </div>
-                      <div className="flex-1">
-                        <h4 className="text-2xl font-bold mb-3 text-white font-outfit">
-                          {value.title}
-                        </h4>
-                        <p className="text-muted-foreground leading-relaxed font-light">
-                          {value.description}
-                        </p>
-                      </div>
+              <div className="my-12">
+                <p className="text-xs font-bold tracking-widest text-accent uppercase text-center mb-6">OUR COMBINED EXPERTISE</p>
+                <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+                  {[
+                    "Growth strategy",
+                    "Market research",
+                    "Offer development",
+                    "Conversion copywriting",
+                    "Funnel design",
+                    "Creative strategy",
+                    "Paid advertising",
+                    "Automation",
+                    "Analytics",
+                    "Performance optimisation"
+                  ].map((capability, idx) => (
+                    <div key={idx} className="glassmorphism bg-white/5 border border-white/5 p-4 rounded-xl text-center hover:border-primary/30 transition-colors">
+                      <span className="text-xs text-white font-medium">{capability}</span>
                     </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-
-          {/* Philosophy Statement */}
-          <div className="relative text-center glassmorphism border-white/20 rounded-[2.5rem] p-16 overflow-hidden opacity-0 animate-fade-in-up" style={{ animationDelay: '0.6s', animationFillMode: 'forwards' }}>
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-accent/10 opacity-50" />
-            <div className="relative z-10">
-              <p className="text-4xl font-black text-white mb-6 font-outfit">
-                No random posting. No guesswork. <br className="hidden md:block"/> No empty promises.
-              </p>
-              <p className="text-2xl text-gradient font-medium tracking-wide">
-                Just pure, data-driven, performance-focused growth.
-              </p>
-              <div className="mt-12 flex flex-wrap justify-center gap-8 text-sm text-white/70">
-                {['Results-Obsessed', 'Transparency First', 'Partner, Not Vendor'].map((text, i) => (
-                  <div key={i} className="flex items-center gap-3">
-                    <div className="w-2 h-2 rounded-full bg-primary shadow-glow animate-pulse" />
-                    <span className="text-base tracking-wider uppercase font-medium">{text}</span>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
+
+              <p className="text-xl text-white font-medium tracking-wide text-center leading-relaxed max-w-3xl mx-auto border-l-2 border-primary pl-6 md:pl-0 md:border-l-0">
+                We created The Scaling Company because most organisations do not need another disconnected vendor. <br />
+                <span className="text-gradient">They need a partner capable of understanding the complete journey</span>—from what the audience sees to what they finally purchase, join or support.
+              </p>
             </div>
           </div>
 

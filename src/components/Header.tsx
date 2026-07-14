@@ -21,10 +21,12 @@ const Header = () => {
   }, [isMenuOpen]);
 
   const menuItems = [
-    { label: "Services",    href: "#services"    },
+    { label: "Home",        href: "#hero"        },
+    { label: "What We Do",  href: "#what-we-do"  },
     { label: "Who We Help", href: "#who-we-help" },
-    { label: "How It Works",href: "#how-it-works"},
-    { label: "About",       href: "#about"       },
+    { label: "Results",     href: "#results"     },
+    { label: "About Us",    href: "#about-us"    },
+    { label: "Insights",    href: "#metrics-grid"},
   ];
 
   const handleNavClick = (href: string) => {
@@ -32,6 +34,13 @@ const Header = () => {
     // Give menu time to close before scrolling
     setTimeout(() => {
       document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+    }, 150);
+  };
+
+  const handleCtaClick = () => {
+    setIsMenuOpen(false);
+    setTimeout(() => {
+      document.querySelector("#application-form")?.scrollIntoView({ behavior: "smooth" });
     }, 150);
   };
 
@@ -87,8 +96,9 @@ const Header = () => {
               variant="gradient"
               size="default"
               className="ml-2 rounded-full px-6 shadow-primary-glow hover:scale-105 transition-transform duration-200"
+              onClick={handleCtaClick}
             >
-              Get Started
+              Get Your Growth Plan
             </Button>
           </nav>
 
@@ -152,12 +162,12 @@ const Header = () => {
               variant="gradient"
               size="lg"
               className="w-full rounded-2xl py-6 text-base font-bold shadow-primary-glow"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={handleCtaClick}
             >
-              Get Started →
+              Get Your Growth Plan
             </Button>
             <p className="text-center text-xs text-white/30 mt-4 font-light">
-              India's #1 Growth Partner for Coaches
+              India's #1 Growth Partner
             </p>
           </div>
         </div>
