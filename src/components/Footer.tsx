@@ -1,9 +1,11 @@
 import React from "react";
 import { Facebook, Linkedin, Instagram, Youtube, Mail, MapPin } from "lucide-react";
 import Logo from "@/components/Logo";
+import { Link, useLocation } from "react-router-dom";
 
 const Footer = () => {
   const currentYear = 2026;
+  const location = useLocation();
 
   const socialLinks = [
     { icon: Linkedin, href: "https://www.linkedin.com/company/thescalingcompany/", label: "LinkedIn" },
@@ -23,10 +25,17 @@ const Footer = () => {
   ];
 
   const legalLinks = [
-    { label: "Privacy Policy", href: "#" },
+    { label: "Privacy Policy", href: "/privacy-policy" },
     { label: "Terms and Conditions", href: "#" },
     { label: "Disclaimer", href: "#" }
   ];
+
+  const getLinkHref = (href: string) => {
+    if (href.startsWith("#") && href !== "#") {
+      return location.pathname === "/" ? href : `/${href}`;
+    }
+    return href;
+  };
 
   return (
     <footer className="bg-card border-t border-white/10 relative overflow-hidden">
@@ -38,9 +47,9 @@ const Footer = () => {
           
           {/* Company Info */}
           <div className="space-y-6">
-            <div className="flex flex-col gap-4 group cursor-pointer items-start">
+            <Link to="/" className="flex flex-col gap-4 group cursor-pointer items-start">
               <Logo height={48} className="transition-transform duration-300 group-hover:scale-[1.04]" />
-            </div>
+            </Link>
             <p className="text-muted-foreground text-sm leading-relaxed font-light">
               The Scaling Company helps businesses, institutions and organisations build measurable growth systems through strategy, funnels, paid acquisition, communication, automation and performance optimisation.
             </p>
@@ -67,7 +76,7 @@ const Footer = () => {
               {quickLinks.map((link, index) => (
                 <li key={index}>
                   <a
-                    href={link.href}
+                    href={getLinkHref(link.href)}
                     className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm font-light"
                   >
                     {link.label}
@@ -83,12 +92,21 @@ const Footer = () => {
             <ul className="space-y-3">
               {legalLinks.map((link, index) => (
                 <li key={index}>
-                  <a
-                    href={link.href}
-                    className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm font-light"
-                  >
-                    {link.label}
-                  </a>
+                  {link.href.startsWith("/") ? (
+                    <Link
+                      to={link.href}
+                      className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm font-light"
+                    >
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <a
+                      href={getLinkHref(link.href)}
+                      className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm font-light"
+                    >
+                      {link.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>

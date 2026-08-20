@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import TrustedBrands from "@/components/TrustedBrands";
@@ -24,6 +25,19 @@ import { BookingModal } from "@/components/BookingModal";
 
 const Index = () => {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const timer = setTimeout(() => {
+        const element = document.querySelector(location.hash);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 200);
+      return () => clearTimeout(timer);
+    }
+  }, [location.hash]);
 
   return (
     <>

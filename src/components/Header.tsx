@@ -2,10 +2,13 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import Logo from "@/components/Logo";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   // Darken border on scroll for cleaner look
   useEffect(() => {
@@ -29,19 +32,27 @@ const Header = () => {
     { label: "Insights",    href: "#metrics-grid"},
   ];
 
-  const handleNavClick = (href: string) => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement> | null, href: string) => {
+    if (e) e.preventDefault();
     setIsMenuOpen(false);
-    // Give menu time to close before scrolling
-    setTimeout(() => {
-      document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
-    }, 150);
+    if (location.pathname !== "/") {
+      navigate("/" + href);
+    } else {
+      setTimeout(() => {
+        document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+      }, 150);
+    }
   };
 
   const handleCtaClick = () => {
     setIsMenuOpen(false);
-    setTimeout(() => {
-      document.querySelector("#application-form")?.scrollIntoView({ behavior: "smooth" });
-    }, 150);
+    if (location.pathname !== "/") {
+      navigate("/#application-form");
+    } else {
+      setTimeout(() => {
+        document.querySelector("#application-form")?.scrollIntoView({ behavior: "smooth" });
+      }, 150);
+    }
   };
 
   return (
@@ -87,6 +98,7 @@ const Header = () => {
               <a
                 key={item.label}
                 href={item.href}
+                onClick={(e) => handleNavClick(e, item.href)}
                 className="relative text-sm font-medium text-white/70 hover:text-white transition-colors duration-200 after:absolute after:bottom-[-3px] after:left-0 after:h-[2px] after:w-0 after:bg-gradient-to-r after:from-primary after:to-accent after:rounded-full after:transition-all after:duration-300 hover:after:w-full"
               >
                 {item.label}
@@ -146,7 +158,7 @@ const Header = () => {
               <a
                 key={item.label}
                 href={item.href}
-                onClick={() => handleNavClick(item.href)}
+                onClick={(e) => handleNavClick(e, item.href)}
                 className="flex items-center gap-4 px-5 py-4 rounded-2xl text-lg font-semibold text-white/80 hover:text-white hover:bg-white/5 border border-transparent hover:border-white/10 transition-all duration-200"
                 style={{ animationDelay: `${i * 60}ms` }}
               >
