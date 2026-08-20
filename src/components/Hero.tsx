@@ -21,12 +21,12 @@ const Hero = ({ onOpenBooking }: { onOpenBooking: () => void }) => {
       <div className="container mx-auto px-4 py-20 relative z-10">
         <div className="max-w-5xl mx-auto text-center">
           
-          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full glassmorphism text-xs font-semibold mb-10 animate-fade-in-up border-primary/20 shadow-primary-glow" style={{ animationDelay: '0.1s' }}>
-            <Sparkles className="w-4 h-4 text-primary" />
+          <div className="inline-flex items-center gap-2 px-4 py-2.5 sm:px-6 sm:py-3 rounded-full glassmorphism text-[10px] sm:text-xs font-semibold mb-8 animate-fade-in-up border-primary/20 shadow-primary-glow text-center max-w-full leading-relaxed" style={{ animationDelay: '0.1s' }}>
+            <Sparkles className="w-3.5 h-3.5 text-primary shrink-0" />
             <span className="text-foreground tracking-widest uppercase">Performance Marketing and Growth Systems for Ambitious Brands and Organisations</span>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-black leading-tight mb-8 tracking-tighter font-outfit animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+          <h1 className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl font-black leading-tight mb-8 tracking-tighter font-outfit animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             We Build Predictable <br/>
             <span className="text-gradient relative inline-block">
               Growth Systems
@@ -35,7 +35,7 @@ const Hero = ({ onOpenBooking }: { onOpenBooking: () => void }) => {
             That Turn Attention Into Revenue, Enrolments and Impact
           </h1>
           
-          <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-4xl mx-auto leading-relaxed animate-fade-in-up font-light" style={{ animationDelay: "0.3s" }}>
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-12 max-w-4xl mx-auto leading-relaxed animate-fade-in-up font-light" style={{ animationDelay: "0.3s" }}>
             Whether you want to acquire more customers, enrol more students, fill your programs, scale product sales or raise more donations, we combine strategy, funnels, advertising, creative communication and automation to help you grow consistently.
           </p>
           
@@ -50,21 +50,21 @@ const Hero = ({ onOpenBooking }: { onOpenBooking: () => void }) => {
                 Explore Our Work
               </Button>
             </div>
-            <p className="text-xs text-muted-foreground mt-4 max-w-lg leading-relaxed font-light">
+            <p className="text-xs text-muted-foreground mt-4 max-w-lg leading-relaxed font-light text-center">
               Book a strategy session to identify the biggest constraint currently affecting your campaigns, conversions and growth.
             </p>
           </div>
           
           {/* Immediate Proof Strip */}
-          <div className="mt-24 flex flex-wrap justify-center gap-6 text-sm text-muted-foreground animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
+          <div className="mt-20 flex flex-wrap justify-center gap-4 text-xs sm:text-sm text-muted-foreground animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
             {[
               '₹5Cr+ Advertising Spend Managed',
               '100+ Coaches and Entrepreneurs Supported',
               'Strategy, Creative, Advertising and Automation Under One Roof'
             ].map((text, i) => (
-              <div key={i} className="flex items-center gap-3 bg-white/5 border border-white/10 px-5 py-3 rounded-full backdrop-blur-md">
-                 <div className="w-2 h-2 rounded-full bg-primary shadow-glow animate-pulse" />
-                 <span className="font-semibold tracking-wide text-white/90">{text}</span>
+              <div key={i} className="flex items-center gap-2.5 bg-white/5 border border-white/10 px-4 py-2.5 sm:px-5 sm:py-3 rounded-full backdrop-blur-md max-w-full text-left">
+                 <div className="w-1.5 h-1.5 rounded-full bg-primary shadow-glow animate-pulse shrink-0" />
+                 <span className="font-semibold tracking-wide text-white/90 text-[11px] sm:text-xs leading-none">{text}</span>
               </div>
             ))}
           </div>
