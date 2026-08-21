@@ -143,9 +143,14 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-4 border-t border-white/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-white/40 text-xs text-center md:text-left font-light">
-              © {currentYear} The Scaling Company. All rights reserved.
-            </p>
+            <div className="flex flex-col gap-1 text-center md:text-left">
+              <p className="text-white/40 text-xs font-light">
+                © {currentYear} The Scaling Company. All rights reserved.
+              </p>
+              <p className="text-white/30 text-[10px] font-light">
+                Modern Day Gurukul is a brand owned and operated by The Scaling Company.
+              </p>
+            </div>
             <div className="flex items-center gap-2">
                <span className="text-white/40 text-xs font-light">Designed for</span>
                <span className="text-primary font-bold text-xs">Category Leaders</span>
