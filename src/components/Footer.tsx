@@ -148,7 +148,14 @@ const Footer = () => {
                 © {currentYear} The Scaling Company. All rights reserved.
               </p>
               <p className="text-white/30 text-[10px] font-light">
-                Modern Day Gurukul is a brand owned and operated by The Scaling Company.
+                <a
+                  href="https://moderndaygurukul.in"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline hover:text-primary transition-colors duration-200"
+                >
+                  Modern Day Gurukul
+                </a> is a brand owned and operated by The Scaling Company.
               </p>
             </div>
             <div className="flex items-center gap-2">
